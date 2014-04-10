@@ -45,7 +45,7 @@ plt.plot(Cas['Time'],CasS['Y_Fit'],color='red')
 CasP['Baseline'] = New_Plot(Cas['Baselines'],Cas['S_sq'],'red')
 
 
-Add_Labels(CasP['Baseline'], '              Fit Error vs. Dec for Cas-a',
+Add_Labels(CasP['Baseline'], 'Fit Error vs. Dec for Cas-a',
     'Declination (Radians)','Error '+r'$\sigma^2$',Sci=False)
 plt.plot(Cas_Min[0],Cas_Min[1],'go')
 

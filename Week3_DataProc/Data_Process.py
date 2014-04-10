@@ -6,12 +6,12 @@ execfile('Plotting_Functions.py')
 execfile('Envelope_Functions.py')
 
 ### Procedural Matters
-CAS = False
+CAS = True
 CRAB = False
 CYGNUS = False
 
-SUN = True
-MOON = True
+SUN = False
+MOON = False
 
 Data_Plots = {}
 Data = {}

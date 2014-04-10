@@ -60,7 +60,7 @@ def Find_Baseline(Hs_Vec,Dec,Signal,Cas=False,Range=[5.0,15.0,1000]):
     S_sq = np.zeros(N_Tries)
     
     for I,By in enumerate(Baselines):
-        X = Basis_Functions(Hs_Vec,Dec,By)
+        X = Basis_Functions(Hs_Vec,By,Dec)
         # a,Y_Fit,Del_Y,s_sq,Sigma = Least_Squares(X,Signal)
         a,Y_Fit,Del_Y,s_sq,Sigma = Least_Squares(X,Signal)
         S_sq[I] = s_sq    
