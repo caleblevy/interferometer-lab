@@ -30,7 +30,7 @@ plt.plot(Cyg['Time'],CygS['Y_Fit'],color='orange')
 CygP['Baseline'] = New_Plot(Cyg['Baselines'],Cyg['S_sq'],'red')
 
 
-Add_Labels(CygP['Baseline'], 'Fitting Error vs. Baseline for Cygnus-a',
+Add_Labels(CygP['Baseline'], '           Error vs. Baseline - Cygnus-a',
     'Baseline (Meters)','Error '+r'$\sigma^2$',Sci=False)
 plt.plot(Cyg_Min[0],Cyg_Min[1],'go')
 

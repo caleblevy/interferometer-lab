@@ -44,5 +44,6 @@ SunP['Diam'] = New_Plot(SunB['R'],SunB['Amp'],'green')
 Add_Labels(SunP['Diam'],'Sun Modulation Function at the Null Point',
     'Angular Radius (Degrees)','Amplitude (Arbitrary Units)',Sci=False)
 plt.plot(SunB['R'],np.zeros(500),color='black')
+plt.plot([0.284],[0.],'yo')
 plt.gca().set_xlim([0.,0.6])
 plt.savefig('Sun_Diameter.pdf')

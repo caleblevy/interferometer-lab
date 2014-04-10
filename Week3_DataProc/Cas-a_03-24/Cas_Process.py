@@ -39,15 +39,15 @@ Cas['Dec'] = np.radians(58.8924752797345)
 Cas['Hs'] = np.radians(Cas['LST']) - Cas['Ra']
     
 # X,Hs = Basis_Functions(Cas['Sin_Hs'], Cas_Dec, Baseline):
-Cas['Baselines'],Cas['S_sq'],Cas_Min,CasS =  Relevant_Stats(Cas['Hs'],Cas['Dec'],Cas['Smooth'])
+Cas['Baselines'],Cas['S_sq'],Cas_Min,CasS =  Relevant_Stats(Cas['Hs'],Cas['Dec'],Cas['Smooth'],True)
 
 plt.plot(Cas['Time'],CasS['Y_Fit'],color='red')
 CasP['Baseline'] = New_Plot(Cas['Baselines'],Cas['S_sq'],'red')
 
 
-Add_Labels(CasP['Baseline'], 'Fitting Error vs. Baseline for Cas-a',
-    'Baseline (Meters)','Error '+r'$\sigma^2$',Sci=False)
-New_Plot(Cas['Hs'],Cas['Smooth'],Cas['Hs'],CasS['Y_Fit'])
+Add_Labels(CasP['Baseline'], '              Fit Error vs. Dec for Cas-a',
+    'Declination (Radians)','Error '+r'$\sigma^2$',Sci=False)
+plt.plot(Cas_Min[0],Cas_Min[1],'go')
 
 for Item in CasP:
     Save_PNG_Plot(CasP[Item],'Cas-a_'+Item)

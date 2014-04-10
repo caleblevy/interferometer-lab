@@ -48,11 +48,14 @@ def Basis_Functions(Hs_Vec,Dec,Baseline):
     
     return X
 
-def Find_Baseline(Hs_Vec,Dec,Signal,Range=[5.0,15.0,1000]):
+def Find_Baseline(Hs_Vec,Dec,Signal,Cas=False,Range=[5.0,15.0,1000]):
     B_s = Range[0]
     B_f = Range[1]
     N_Tries = Range[2]
     Baselines = np.linspace(B_s,B_f,N_Tries)
+    if Cas:
+        Dec = 10.
+        Baselines = np.linspace(0.1,np.pi,1000)
     
     S_sq = np.zeros(N_Tries)
     
@@ -75,9 +78,9 @@ def Best_Fit(Hs_Vec,Dec,Signal,Baselines,S_sq):
     Stats['a'],Stats['Y_Fit'],Stats['Del_Y'],Stats['s_sq'],Stats['Sigma'] = Least_Squares(Min_Basis,Signal)
     return Min_Point,Stats
     
-def Relevant_Stats(Hs,Dec,Signal,Range=[5.0,15.0,1000]):
+def Relevant_Stats(Hs,Dec,Signal,Cas=False,Range=[5.0,15.0,1000]):
     Hs_Vec = np.sin(Hs)
-    Baselines,S_sq = Find_Baseline(Hs_Vec,Dec,Signal)
+    Baselines,S_sq = Find_Baseline(Hs_Vec,Dec,Signal,Cas)
     Min_Point,Stats = Best_Fit(Hs_Vec,Dec,Signal,Baselines,S_sq)
     return Baselines,S_sq,Min_Point,Stats
     

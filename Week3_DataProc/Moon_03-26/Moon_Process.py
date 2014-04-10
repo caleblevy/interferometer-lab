@@ -22,7 +22,7 @@ MoonP['Smooth'] = New_Plot(Moon['Time'],Moon['Smooth'],'purple')
 plt.plot(MoonE_P['Time'],MoonE_P['Voltage'],color='blue')
 plt.plot(MoonE_M['Time'],MoonE_M['Voltage'],color='red')
 
-Add_Labels(MoonP['Smooth'],'Smoothed voltage data for Moon on 03-26', *VT_Labels,Sci=False)
+Add_Labels(MoonP['Smooth'],'Voltage data for Moon on 03-26', *VT_Labels)
 plt.gca().set_xlim([0,Moon['Time'][len(Moon['Voltage'])-1]])
 
 # MoonS_P = Moon_Fit(MoonE_P)
@@ -38,10 +38,11 @@ MoonB['R'],MoonB['Amp'] = Diameter_Function(Moon,Null_Ind)
 MoonB['R'] = np.rad2deg(MoonB['R'])
 Save_Data(MoonB,'Bessel')
 
-MoonP['Diam'] = New_Plot(MoonB['R'],MoonB['Amp'],'grey')
+MoonP['Diam'] = New_Plot(MoonB['R'],MoonB['Amp'],'red')
 Add_Labels(MoonP['Diam'],'Moon Modulation Function at the Null Point',
     'Angular Radius (Degrees)','Amplitude',Sci=False)
 plt.plot(MoonB['R'],np.zeros(500),color='black')
+plt.plot([0.193],[0.],'yo')
 plt.gca().set_xlim([0.,0.6])
 plt.gca().get_yaxis().set_visible(False)
 plt.savefig('Moon_Diameter.pdf')
